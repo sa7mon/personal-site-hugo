@@ -72,11 +72,11 @@ As far as I understand, a Chromecast app should send information over SSDP if it
 
 <p>In Policy Manager, go to &ldquo;Network &gt; Network Configuration&rdquo;. Highlight whichever interface the DHCP server is running on and hit “Configure…”</p>
 
-<p><img src="/blog/content/images/2017/08/WGCast-1NetworkConfiguration.png" alt="WGCast-1NetworkConfiguration" /></p>
+<p><img src="../images/WGCast-1NetworkConfiguration.png" alt="WGCast-1NetworkConfiguration" /></p>
 
 <p>In the Interface Settings window, click “Add” in the Reserved Addresses section and enter the appropriate information.</p>
 
-<p><img src="/blog/content/images/2017/08/WGCast-2DHCPreservation.png" alt="WGCast-2DHCPreservation" /></p>
+<p><img src="../images/WGCast-2DHCPreservation.png" alt="WGCast-2DHCPreservation" /></p>
 
 <p>OK to everything until you get back to Policy Manager.</p>
 
@@ -86,9 +86,9 @@ As far as I understand, a Chromecast app should send information over SSDP if it
 
 <p>Like always, we start in Policy Manager. From there, hit &ldquo;Setup &gt; Aliases &gt; Add..”. Name it something useful like “Chromecast1”. Make sure the “Type” is set to “Host IPv4” and enter the IP that we reserved below that.</p>
 
-<p><img src="/blog/content/images/2017/08/WGCast-3AliasCreation.png" alt="WGCast-3AliasCreation" /></p>
+<p><img src="../images/WGCast-3AliasCreation.png" alt="WGCast-3AliasCreation" /></p>
 
-<p><img src="/blog/content/images/2017/08/WGCast-4chromecastAlias.png" alt="WGCast-4chromecastAlias" /></p>
+<p><img src="../images/WGCast-4chromecastAlias.png" alt="WGCast-4chromecastAlias" /></p>
 
 <p>Again we “OK” everything until we get back to Policy Manager. From now on, if we ever decide to change the network addressing scheme, we just have to change the IP in the alias and be done. No editing of policies necessary.</p>
 
@@ -124,7 +124,7 @@ As far as I understand, a Chromecast app should send information over SSDP if it
     </tr>
 </table></p>
 
-<p><img src="/blog/content/images/2017/08/WGCast-5PolicyTemplates.png" alt="WGCast-5PolicyTemplates" /></p>
+<p><img src="../images/WGCast-5PolicyTemplates.png" alt="WGCast-5PolicyTemplates" /></p>
 
 <h1 id="step-3-create-policies">Step 3 – Create Policies</h1>
 
@@ -132,15 +132,15 @@ As far as I understand, a Chromecast app should send information over SSDP if it
 
 <p>In the “Add Policies” window still highlight the “Allow Chromecast Outbound” and click “Add…”. After that, change the Name to something meaningful, change the “From” to our “Chromecast” alias, and change the “To” to Any-Trusted (assuming the Chromecast is on the Trusted network).</p>
 
-<p><img src="/blog/content/images/2017/08/WGCast-6FirstPolicy.png" alt="WGCast-6FirstPolicy" /></p>
+<p><img src="../images/WGCast-6FirstPolicy.png" alt="WGCast-6FirstPolicy" /></p>
 
 <p>Repeat the steps with the “Chromecast Inbound” policy template, but changing the “From” to Any-Trusted and the “To” to the Chromecast alias. Again, this assumes that the Chromecast is on the Trusted network.</p>
 
-<p><img src="/blog/content/images/2017/08/WGCast-7SecondPolicy.png" alt="WGCast-7SecondPolicy" /></p>
+<p><img src="../images/WGCast-7SecondPolicy.png" alt="WGCast-7SecondPolicy" /></p>
 
 <p>The last policy to create is the Chromecast SSDP policy. This one I don’t fully understand but is related to Simple Service Discovery Protocol, a relative to UPnP.  Add a policy using the “Chromecast SSDP” template, change the “From” to our Chromecast alias, and change the “To” to 239.255.255.250 (Add Other..&gt;Host IPv4)</p>
 
-<p><img src="/blog/content/images/2017/08/WGCast-8ThirdPolicy.png" alt="WGCast-8ThirdPolicy" /></p>
+<p><img src="../images/WGCast-8ThirdPolicy.png" alt="WGCast-8ThirdPolicy" /></p>
 
 <h1 id="step-4-save-and-enjoy">Step 4 – Save and Enjoy</h1>
 

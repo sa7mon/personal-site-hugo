@@ -57,7 +57,7 @@
 
 <p>A few months back, I was doing cleanup on a system that I had cleaned of malware.  Whatever junk was on there had configured a local proxy server to run, but Malwarebytes had ripped it out.  The system unfortunately still thought it was supposed to use the proxy server that doesn’t exist; consequently, I had no internet access. That’s an easy enough fix, right? I open Internet Options and change the LAN settings to not use a proxy and close it. For some reason, every time I would close the window it would re-configure itself to use the proxy. “Was it still infected?” I wondered. Turns out, in the Advanced tab I get this message:</p>
 
-<p><img src="/blog/content/images/2017/08/internetOptions.jpg" alt="internetOptions" /></p>
+<p><img src="../images/internetOptions.jpg" alt="internetOptions" /></p>
 
 <p>But I am a system administrator? I double-checked this and verified that I was a local admin. Once again it was <a href="https://social.technet.microsoft.com/Forums/windowsserver/en-US/cd9e1fc2-e209-49f4-ae4a-78222969c6b2/some-settings-are-managed-by-your-system-administrator">TechNet to the rescue</a>.</p>
 
@@ -67,13 +67,13 @@
 
 <p>Open up Registry Editor and navigate to: <em>HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings</em> and look for a “REG_DWORD” value called &ldquo;Security_HKLM_only&rdquo;.</p>
 
-<p><img src="/blog/content/images/2017/08/regKey.png" alt="regKey" /></p>
+<p><img src="../images/regKey.png" alt="regKey" /></p>
 
 <h1 id="step-2">Step 2</h1>
 
 <p>I would recommend backing up the key before you delete it just in case something goes wrong when you do this. To back up the key, just navigate to the key and go to &ldquo;File &gt; Export&rdquo;.</p>
 
-<p><img src="/blog/content/images/2017/08/export.png" alt="export" /></p>
+<p><img src="../images/export.png" alt="export" /></p>
 
 <p>After that, just right-click on the &ldquo;Security_HKLM_only&rdquo; value and delete it. You may need to restart the system for it to take effect, but you should be able to edit all Internet Options after that.</p>
 
