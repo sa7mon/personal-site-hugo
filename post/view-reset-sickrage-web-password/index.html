@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Networking - Dan [the] Salmon</title>
+  <title>View/Reset SickRage Web Password - Dan [the] Salmon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <link rel="canonical" href="https://sa7mon.github.io/personal-site-hugo/tags/networking/">
+  <link rel="canonical" href="https://sa7mon.github.io/personal-site-hugo/post/view-reset-sickrage-web-password/">
 
   
   
@@ -47,12 +47,57 @@
 
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
-    <p>Tag: networking</p>
-    <ul>
+      <div class="post-header mb2">
+        <h1 class="py2">View/Reset SickRage Web Password</h1>
+       
+        <span class="post-meta">Aug 18, 2017</span><br>
         
-            <li><a href="https://sa7mon.github.io/personal-site-hugo/post/allow-a-chromecast-through-a-watchguard-firewall/"> Allow a Chromecast through a WatchGuard firewall </a></li>
+      </div>
+
+      <article class="post-content">
+      
+
+<h1 id="background">Background</h1>
+
+<p>I recently forgot my password for SickRage and was surprised by the little documentation online.  I have it installed in a jail in FreeNAS, so that’s what I’ll be focused on here but the instructions should be exactly the same if you have it installed inside an OS.</p>
+
+<h1 id="steps">Steps</h1>
+
+<p>It’s actually really easy, assuming you have command-line access. In FreeNAS, open a shell on your SickRage jail and edit the following file:</p>
+
+<pre><code class="language-language-bash">/var/db/sickrage/config.ini
+</code></pre>
+
+<p>There should be 2 lines in that file, “web_username” and “web_password”. Just edit these with what you want them to be and save the file. I installed Nano in my environment, but vi should work just fine.</p>
+
+<p><img src="../images/editFile.png" alt="editFile" /></p>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
         
-    </ul>
+            
+            <a href="https://sa7mon.github.io/personal-site-hugo/tags/freenas">freenas</a>
+        
+      </p>
+
+      
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "sitename";
+    this.page.identifier = "\/post\/view-reset-sickrage-web-password\/";
+  };
+
+  (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = "https://sitename.disqus.com/embed.js";
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+
     </div>
   </div>
 </div>

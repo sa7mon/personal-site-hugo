@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>About - Dan [the] Salmon</title>
+  <title>Fix HAXM Emulation Error in Android Studio - Dan [the] Salmon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <link rel="canonical" href="https://sa7mon.github.io/personal-site-hugo/about/">
+  <link rel="canonical" href="https://sa7mon.github.io/personal-site-hugo/post/fix-haxm-emulation-error-in-android-studio/">
 
   
   
@@ -48,13 +48,63 @@
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
       <div class="post-header mb2">
-        <h1 class="py2">About</h1>
+        <h1 class="py2">Fix HAXM Emulation Error in Android Studio</h1>
+       
+        <span class="post-meta">Aug 26, 2017</span><br>
+        
       </div>
 
       <article class="post-content">
-      <p>Few words about project.</p>
+      
+
+<p><strong>Requirement Note:</strong> Android Studio requires an Intel processor with VT-X support for it’s built-in emulators to work. If you want to do Android development with emulators on an AMD processor, I would highly suggest using <a href="https://www.genymotion.com/#!/">Genymotion</a>. If you’re not sure if your Intel processor supports VT-X, Intel has <a href="http://www.intel.com/support/processors/sb/cs-030729.htm">an article here</a>.</p>
+
+<hr />
+
+<p>This error is occurring because Android Studio requires Intel Hardware Accelerated Execution Manager (Intel HAXM) to run it’s emulators. All we need to do is install this tool.</p>
+
+<p><img src="../images/error.png" alt="error" /></p>
+
+<h1 id="step-1">Step 1</h1>
+
+<p>After starting Android Studio, open the SDK manager and scroll to the Extras folder near the bottom. Check the Intel x86 Emulator Accelerator (HAXM installer) option and hit the Install packages button.</p>
+
+<p><img src="../images/haxm-win-img01.png" alt="haxm-win-img01" /></p>
+
+<h1 id="step-2">Step 2</h1>
+
+<p>After it’s done installing the package, you need to run the installer. It’s located in <em>&lt;sdk&gt;/extras/intel/HardwareAcceleratedExecutionManager/IntelHAXM.exe</em>. The location of &lt;sdk&gt; is near the top of the SDK Manager window and is usually in <em>C:\Users(user)\AppData\Local\Android\sdk</em>.</p>
+
+<p><img src="../images/installer.png" alt="installer" /></p>
+
+<p>Just accept all the defaults for the installer until it finishes. When it’s done, restart Android Studio and try to start your VM up again. This time it should start right up.</p>
 
       </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="https://sa7mon.github.io/personal-site-hugo/tags/android">android</a>
+        
+      </p>
+
+      
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_config = function () {
+    this.page.url = "sitename";
+    this.page.identifier = "\/post\/fix-haxm-emulation-error-in-android-studio\/";
+  };
+
+  (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = "https://sitename.disqus.com/embed.js";
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+
     </div>
   </div>
 </div>
