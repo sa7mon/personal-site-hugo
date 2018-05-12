@@ -45,9 +45,6 @@
     <div class="measure">
       <div class="post-header mb2">
         <h1 class="py2">Fix Ruby on Rails Certificate Issue</h1>
-       
-        <span class="post-meta">Aug 25, 2017</span><br>
-        
       </div>
 
       <article class="post-content">
@@ -59,26 +56,25 @@
 <p><img src="../images/rubyerror.png" alt="rubyerror" /></p>
 
 <p>So after doing some research, it turns out all you need to do is a Gem update:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-language-bash" data-lang="language-bash">gem update --system</code></pre></div>
+
+<pre><code class="language-language-bash">gem update --system
+</code></pre>
+
 <p>Unless of course, this results in this error like it did for me:</p>
 
 <pre><code>ERROR: While executing gem ... (Gem::RemoteFetcher::FetchError) SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed (https://api.rubygem s.org/specs.4.8.gz)
 </code></pre>
 
 <p>It turns out this SSL certificate error is pretty easy to fix. Just issue these commands in this order:</p>
-<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-language-bash" data-lang="language-bash">gem sources -r https://rubygems.org
+
+<pre><code class="language-language-bash">gem sources -r https://rubygems.org
 gem sources -a http://rubygems.org
-gem update --system</code></pre></div>
+gem update --system
+</code></pre>
+
 <p>What this does is: removes the secure Ruby site from the list of sites to use for updating gems (-r), then adds the insecure version temporarily.The gem update should succeed this time as should another “rails new” command. If you would like to switch back to the secure site, do the first 2 commands again but switch the -r and -a flags.</p>
 
       </article>
-
-      <p class="post-meta">Tags:&nbsp;
-        
-      </p>
-
-      
-
     </div>
   </div>
 </div>
